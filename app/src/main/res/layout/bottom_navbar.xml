@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="#111F35"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/navHome"
+        android:src="@drawable/home"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/navOrders"
+        android:src="@drawable/cart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/navSettings"
+        android:src="@drawable/settings"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
