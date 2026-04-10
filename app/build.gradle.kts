@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.testapplication"
+    namespace = "com.example.creatorshub"
     compileSdk = 34
 
     defaultConfig {
