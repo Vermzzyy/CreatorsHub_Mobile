@@ -1,4 +1,4 @@
-package com.example.creatorshub
+package com.example.creatorshub.screens.services
 
 import android.app.Activity
 import android.os.Bundle
