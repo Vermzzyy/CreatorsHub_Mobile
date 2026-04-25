@@ -1,7 +1,7 @@
 package com.example.creatorshub.screens.login
 
 import android.content.Context
-import com.example.creatorshub.data.SessionManager
+import com.example.creatorshub.shared.SessionManager
 import com.example.creatorshub.screens.login.model.LoginRequest
 import com.example.creatorshub.screens.login.model.LoginResponse
 import retrofit2.Call

@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import com.example.creatorshub.R
-import com.example.creatorshub.data.SessionManager
+import com.example.creatorshub.shared.SessionManager
 import com.example.creatorshub.screens.home.HomeActivity
 import com.example.creatorshub.screens.login.LoginActivity
 import com.example.creatorshub.screens.register.RegisterActivity

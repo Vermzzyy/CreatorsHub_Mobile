@@ -1,6 +1,6 @@
 package com.example.creatorshub.screens.home
 
-import com.example.creatorshub.data.ApiService
+import com.example.creatorshub.shared.ApiService
 import com.example.creatorshub.models.ProfileResponse
 import retrofit2.Call
 import retrofit2.Callback

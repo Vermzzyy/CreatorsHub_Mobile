@@ -1,4 +1,4 @@
-package com.example.creatorshub.adapters
+package com.example.creatorshub.screens.services.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater

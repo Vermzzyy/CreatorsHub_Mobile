@@ -1,4 +1,4 @@
-package com.example.creatorshub.data
+package com.example.creatorshub.shared
 
 import com.example.creatorshub.screens.login.model.LoginRequest
 import com.example.creatorshub.screens.login.model.LoginResponse

@@ -8,7 +8,7 @@ import android.widget.*
 import com.example.creatorshub.screens.home.HomeActivity
 import com.example.creatorshub.R
 import com.example.creatorshub.screens.register.RegisterActivity
-import com.example.creatorshub.data.RetrofitClient
+import com.example.creatorshub.shared.RetrofitClient
 
 class LoginActivity : Activity(), LoginContract.View {
 

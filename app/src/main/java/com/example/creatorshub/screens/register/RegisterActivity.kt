@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.example.creatorshub.R
-import com.example.creatorshub.data.RetrofitClient
+import com.example.creatorshub.shared.RetrofitClient
 import com.example.creatorshub.screens.login.LoginActivity
 
 class RegisterActivity : Activity(), RegisterContract.View {

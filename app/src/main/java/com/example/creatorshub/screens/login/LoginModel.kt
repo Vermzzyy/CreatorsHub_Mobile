@@ -1,6 +1,6 @@
 package com.example.creatorshub.screens.login
 
-import com.example.creatorshub.data.AuthApiService
+import com.example.creatorshub.shared.AuthApiService
 import com.example.creatorshub.screens.login.model.LoginRequest
 import com.example.creatorshub.screens.login.model.LoginResponse
 import retrofit2.Call

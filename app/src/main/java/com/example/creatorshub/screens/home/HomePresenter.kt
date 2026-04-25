@@ -1,7 +1,7 @@
 package com.example.creatorshub.screens.home
 
 import android.content.Context
-import com.example.creatorshub.data.SessionManager
+import com.example.creatorshub.shared.SessionManager
 
 class HomePresenter(
     private val view: HomeContract.View,

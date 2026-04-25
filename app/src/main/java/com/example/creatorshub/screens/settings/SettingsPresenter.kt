@@ -2,7 +2,7 @@ package com.example.creatorshub.screens.settings
 
 import android.content.Context
 import android.net.Uri
-import com.example.creatorshub.data.SessionManager
+import com.example.creatorshub.shared.SessionManager
 import com.example.creatorshub.models.*
 import okhttp3.MediaType
 import okhttp3.RequestBody

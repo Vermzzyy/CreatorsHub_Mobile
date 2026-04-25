@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import com.example.creatorshub.R
-import com.example.creatorshub.data.RetrofitClient
+import com.example.creatorshub.shared.RetrofitClient
 import com.example.creatorshub.screens.services.ServicesActivity
 import com.example.creatorshub.screens.settings.SettingsActivity
 import com.example.creatorshub.screens.login.LoginActivity

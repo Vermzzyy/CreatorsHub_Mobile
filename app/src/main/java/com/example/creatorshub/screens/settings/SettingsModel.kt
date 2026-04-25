@@ -1,6 +1,6 @@
 package com.example.creatorshub.screens.settings
 
-import com.example.creatorshub.data.ApiService
+import com.example.creatorshub.shared.ApiService
 import com.example.creatorshub.models.*
 import okhttp3.RequestBody
 import retrofit2.Call

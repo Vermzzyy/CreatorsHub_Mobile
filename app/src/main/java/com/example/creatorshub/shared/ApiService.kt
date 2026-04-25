@@ -1,4 +1,4 @@
-package com.example.creatorshub.data
+package com.example.creatorshub.shared
 
 import com.example.creatorshub.models.GenericResponse
 import com.example.creatorshub.models.ProfileResponse

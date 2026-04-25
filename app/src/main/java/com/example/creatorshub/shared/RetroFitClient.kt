@@ -1,4 +1,4 @@
-package com.example.creatorshub.data
+package com.example.creatorshub.shared
 
 import android.content.Context
 import okhttp3.OkHttpClient

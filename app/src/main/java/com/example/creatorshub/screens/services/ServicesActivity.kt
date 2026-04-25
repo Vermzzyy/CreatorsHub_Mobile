@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.creatorshub.R
-import com.example.creatorshub.adapters.ServiceAdapter
+import com.example.creatorshub.screens.services.adapters.ServiceAdapter
 import com.example.creatorshub.models.ServiceModel
 
 /**

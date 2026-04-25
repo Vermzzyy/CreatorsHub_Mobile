@@ -8,7 +8,7 @@ import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.creatorshub.R
-import com.example.creatorshub.data.RetrofitClient
+import com.example.creatorshub.shared.RetrofitClient
 import com.example.creatorshub.screens.login.LoginActivity
 import com.example.creatorshub.models.ProfileResponse
 import com.example.creatorshub.screens.home.HomeActivity

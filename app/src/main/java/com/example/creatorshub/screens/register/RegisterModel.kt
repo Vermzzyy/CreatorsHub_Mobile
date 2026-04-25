@@ -1,6 +1,6 @@
 package com.example.creatorshub.screens.register
 
-import com.example.creatorshub.data.AuthApiService
+import com.example.creatorshub.shared.AuthApiService
 import com.example.creatorshub.screens.register.model.RegisterRequest
 import com.example.creatorshub.screens.register.model.RegisterResponse
 import retrofit2.Call
