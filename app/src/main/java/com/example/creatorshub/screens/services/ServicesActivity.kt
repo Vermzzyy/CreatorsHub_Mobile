@@ -2,36 +2,48 @@ package com.example.creatorshub.screens.services
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.creatorshub.R
 import com.example.creatorshub.adapters.ServiceAdapter
 import com.example.creatorshub.models.ServiceModel
-import com.example.creatorshub.R
 
-class ServicesActivity : Activity() {
-    lateinit var recyclerView: RecyclerView
-    lateinit var serviceAdapter: ServiceAdapter
-    lateinit var serviceList: ArrayList<ServiceModel>
+/**
+ * ServicesActivity using findViewById for compatibility.
+ */
+class ServicesActivity : Activity(), ServicesContract.View {
+    
+    private lateinit var presenter: ServicesPresenter
+    private lateinit var recyclerView: RecyclerView
+    private var serviceAdapter: ServiceAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_services)
 
         recyclerView = findViewById(R.id.servicesRecycler)
+        presenter = ServicesPresenter(this, ServicesModel())
+        
+        setupRecyclerView()
+        presenter.loadServices()
+    }
 
-        serviceList = arrayListOf(
-            ServiceModel("Website UI", R.drawable.placeholder),
-            ServiceModel("App UI", R.drawable.placeholder),
-            ServiceModel("Roblox Scripting", R.drawable.placeholder),
-            ServiceModel("Poster", R.drawable.placeholder),
-            ServiceModel("3D Animation", R.drawable.placeholder),
-            ServiceModel("Logo Design", R.drawable.placeholder),
-            ServiceModel("3D Modelling", R.drawable.placeholder),
-            ServiceModel("Web Development", R.drawable.placeholder)
-        )
-
+    private fun setupRecyclerView() {
         recyclerView.layoutManager = GridLayoutManager(this, 2)
-        serviceAdapter = ServiceAdapter(serviceList)
+    }
+
+    override fun showServices(services: List<ServiceModel>) {
+        serviceAdapter = ServiceAdapter(ArrayList(services))
         recyclerView.adapter = serviceAdapter
+    }
+
+    override fun showError(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.detachView()
     }
 }

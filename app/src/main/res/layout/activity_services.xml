@@ -1,99 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="#F2F2F2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="20dp">
 
+        <!-- Search Bar -->
         <LinearLayout
-            android:orientation="vertical"
-            android:padding="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="48dp"
+            android:background="@drawable/input_field_rounded"
+            android:backgroundTint="@color/search_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp">
+            
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_menu_search"
+                app:tint="@color/text_secondary"/>
+            
             <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:hint="Search a service"
-                android:padding="12dp"
-                android:background="@drawable/input_field"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <HorizontalScrollView
-                android:scrollbars="none"
-                android:layout_marginBottom="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="All"
-                        android:textColor="@color/white"
-                        android:background="@drawable/primary_button"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="UI/UX"
-                        android:background="@drawable/input_field"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Game Dev"
-                        android:background="@drawable/input_field"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Graphic Design"
-                        android:background="@drawable/input_field"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
-                android:text="Our Services"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginBottom="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/servicesRecycler"
-                android:nestedScrollingEnabled="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:background="@null"
+                android:paddingStart="12dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:inputType="text"/>
         </LinearLayout>
 
-    </ScrollView>
+        <!-- Categories -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginBottom="16dp">
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:background="@drawable/input_field_rounded"
+                    android:backgroundTint="@color/nav_dark"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UI/UX"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:background="@drawable/input_field_rounded"
+                    android:backgroundTint="@color/nav_dark"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Game"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:background="@drawable/input_field_rounded"
+                    android:backgroundTint="@color/nav_dark"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Web"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:background="@drawable/input_field_rounded"
+                    android:backgroundTint="@color/nav_dark"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Our Services"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/servicesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+            
+    </LinearLayout>
 
     <include layout="@layout/bottom_navbar"/>
 

@@ -5,7 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import com.example.creatorshub.R
-import com.example.creatorshub.ServicesActivity
+import com.example.creatorshub.data.RetrofitClient
+import com.example.creatorshub.screens.services.ServicesActivity
 import com.example.creatorshub.screens.settings.SettingsActivity
 import com.example.creatorshub.screens.login.LoginActivity
 
@@ -24,13 +25,19 @@ class HomeActivity : Activity(), HomeContract.View {
         setContentView(R.layout.activity_home2)
 
         browseBtn = findViewById(R.id.browseServicesBtn)
-
         navHome = findViewById(R.id.navHome)
         navOrders = findViewById(R.id.navOrders)
         navSettings = findViewById(R.id.navSettings)
         welcomeText = findViewById(R.id.welcomeText)
 
-        presenter = HomePresenter(this, HomeModel(), this)
+        // Initialize API and Presenter
+        val api = RetrofitClient.create(this)
+        presenter = HomePresenter(this, HomeModel(api), this)
+
+        // Navigation listeners
+        browseBtn.setOnClickListener {
+            startActivity(Intent(this, ServicesActivity::class.java))
+        }
 
         navOrders.setOnClickListener {
             startActivity(Intent(this, ServicesActivity::class.java))

@@ -1,6 +1,5 @@
 package com.example.creatorshub.screens.home
 
-
 import android.content.Context
 import com.example.creatorshub.data.SessionManager
 
@@ -11,7 +10,6 @@ class HomePresenter(
 ) : HomeContract.Presenter {
 
     override fun loadDashboard() {
-
         val session = SessionManager(context)
         val token = session.getToken()
 
@@ -21,7 +19,9 @@ class HomePresenter(
             return
         }
 
-        val message = model.getWelcomeMessage()
-        view.showWelcome(message)
+        model.fetchProfile { firstName ->
+            val name = firstName ?: "User"
+            view.showWelcome("Welcome, $name!")
+        }
     }
 }

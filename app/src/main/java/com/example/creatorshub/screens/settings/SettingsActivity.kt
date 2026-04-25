@@ -126,67 +126,67 @@ class SettingsActivity : Activity(), SettingsContract.View {
 
 
     private fun showUpdateProfileDialog() {
-        val layout = LinearLayout(this)
-        layout.orientation = LinearLayout.VERTICAL
-        layout.setPadding(50, 40, 50, 10)
-
-        val fNameInput = EditText(this)
+        val view = layoutInflater.inflate(R.layout.dialog_custom, null)
+        val dialog = AlertDialog.Builder(this).setView(view).create()
+        
+        val title = view.findViewById<TextView>(R.id.dialogTitle)
+        val fNameInput = view.findViewById<EditText>(R.id.input1)
+        val lNameInput = view.findViewById<EditText>(R.id.input2)
+        val actionBtn = view.findViewById<Button>(R.id.dialogActionBtn)
+        
+        title.text = "Update Profile"
         fNameInput.hint = "First Name"
-        layout.addView(fNameInput)
-
-        val lNameInput = EditText(this)
+        fNameInput.setText(currentFirstName)
         lNameInput.hint = "Last Name"
-        layout.addView(lNameInput)
+        lNameInput.setText(currentLastName)
+        actionBtn.text = "UPDATE"
+        
+        actionBtn.setOnClickListener {
+            val fname = fNameInput.text.toString()
+            val lname = lNameInput.text.toString()
 
-        AlertDialog.Builder(this)
-            .setTitle("Update Profile")
-            .setView(layout)
-            .setPositiveButton("Update") { _, _ ->
-                val fname = fNameInput.text.toString()
-                val lname = lNameInput.text.toString()
-
-                if (fname.isNotEmpty() && lname.isNotEmpty()) {
-                    if (currentUserId != null) {
-                        presenter.updateProfile(currentUserId!!, fname, lname)
-                    } else {
-                        Toast.makeText(this, "User not loaded yet", Toast.LENGTH_SHORT).show()
-                    }
+            if (fname.isNotEmpty() && lname.isNotEmpty()) {
+                if (currentUserId != null) {
+                    presenter.updateProfile(currentUserId!!, fname, lname)
+                    dialog.dismiss()
                 } else {
-                    Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "User not loaded yet", Toast.LENGTH_SHORT).show()
                 }
+            } else {
+                Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton("Cancel", null)
-            .show()
+        }
+        dialog.show()
     }
 
     private fun showChangePasswordDialog() {
-        val layout = LinearLayout(this)
-        layout.orientation = LinearLayout.VERTICAL
-        layout.setPadding(50, 40, 50, 10)
+        val view = layoutInflater.inflate(R.layout.dialog_custom, null)
+        val dialog = AlertDialog.Builder(this).setView(view).create()
+        
+        val title = view.findViewById<TextView>(R.id.dialogTitle)
+        val curPassInput = view.findViewById<EditText>(R.id.input1)
+        val newPassInput = view.findViewById<EditText>(R.id.input2)
+        val actionBtn = view.findViewById<Button>(R.id.dialogActionBtn)
+        
+        title.text = "Change Password"
+        curPassInput.hint = "Current Password"
+        curPassInput.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+        newPassInput.hint = "New Password"
+        newPassInput.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+        actionBtn.text = "CHANGE"
+        
+        actionBtn.setOnClickListener {
+            val curPass = curPassInput.text.toString()
+            val newPass = newPassInput.text.toString()
 
-        val curPass = EditText(this)
-        curPass.hint = "Current Password"
-        layout.addView(curPass)
-
-        val newPass = EditText(this)
-        newPass.hint = "New Password"
-        layout.addView(newPass)
-
-        AlertDialog.Builder(this)
-            .setTitle("Change Password")
-            .setView(layout)
-            .setPositiveButton("Change") { _, _ ->
-                if (curPass.text.isNotEmpty() && newPass.text.isNotEmpty()) {
-                    presenter.changePassword(
-                        curPass.text.toString(),
-                        newPass.text.toString()
-                    )
-                } else {
-                    Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
-                }
+            if (curPass.isNotEmpty() && newPass.isNotEmpty()) {
+                presenter.changePassword(curPass, newPass)
+                dialog.dismiss()
+            } else {
+                Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton("Cancel", null)
-            .show()
+        }
+        dialog.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
