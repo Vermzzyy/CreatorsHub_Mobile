@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/white">
+    android:background="@color/bg_main">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:text="Create Your Account"
                 android:textSize="26sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/text_primary"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -31,7 +31,7 @@
             <TextView
                 android:text="Sign up to get started with CreatorsHub"
                 android:textSize="14sp"
-                android:textColor="#666666"
+                android:textColor="@color/text_secondary"
                 android:gravity="center"
                 android:layout_marginBottom="30dp"
                 android:layout_width="match_parent"
@@ -40,6 +40,8 @@
             <EditText
                 android:id="@+id/firstName"
                 android:hint="First Name"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:background="@drawable/input_field"
                 android:padding="12dp"
                 android:layout_width="match_parent"
@@ -50,6 +52,8 @@
             <EditText
                 android:id="@+id/lastName"
                 android:hint="Last Name"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:background="@drawable/input_field"
                 android:padding="12dp"
                 android:layout_width="match_parent"
@@ -60,6 +64,8 @@
             <EditText
                 android:id="@+id/email"
                 android:hint="Email"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:background="@drawable/input_field"
                 android:padding="12dp"
                 android:layout_width="match_parent"
@@ -70,6 +76,8 @@
             <EditText
                 android:id="@+id/password"
                 android:hint="Password"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:background="@drawable/input_field"
                 android:inputType="textPassword"
                 android:padding="12dp"
@@ -81,6 +89,8 @@
             <EditText
                 android:id="@+id/confirmPassword"
                 android:hint="Confirm Password"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:background="@drawable/input_field"
                 android:inputType="textPassword"
                 android:padding="12dp"
@@ -110,8 +120,9 @@
             <TextView
                 android:id="@+id/loginLink"
                 android:text="Already have an account? Login"
-                android:textSize="13sp"
-                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/secondary_blue"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

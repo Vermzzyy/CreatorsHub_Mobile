@@ -1,6 +1,7 @@
 package com.example.creatorshub.screens.login
 
 import android.content.Context
+import com.example.creatorshub.data.BackendClient
 import com.example.creatorshub.data.SessionManager
 import com.example.creatorshub.screens.login.model.LoginRequest
 import com.example.creatorshub.screens.login.model.LoginResponse
@@ -38,7 +39,7 @@ class LoginPresenter(
                 if (response.isSuccessful) {
 
                     val body = response.body()
-                    val token = body?.access_token   // ✅ Supabase returns "access_token"
+                    val token = body?.access_token
                     val userId = body?.user?.id
 
                     if (token.isNullOrEmpty()) {
@@ -52,6 +53,9 @@ class LoginPresenter(
                         session.saveUserId(userId)
                     }
 
+
+                    loginToBackend(email, password, session) {
+                    }
                     view.navigateToDashboard()
 
                 } else {
@@ -71,5 +75,64 @@ class LoginPresenter(
                 view.showError("No internet connection")
             }
         })
+    }
+
+    private fun loginToBackend(email: String, password: String, session: SessionManager, onComplete: () -> Unit) {
+        try {
+            val backendAuth = BackendClient.createAuthClient(context)
+            val backendRequest = mapOf("email" to email, "password" to password)
+            backendAuth.login(backendRequest).enqueue(object : Callback<Map<String, Any>> {
+                override fun onResponse(
+                    call: Call<Map<String, Any>>,
+                    response: Response<Map<String, Any>>
+                ) {
+                    if (response.isSuccessful) {
+                        val t = response.body()?.get("token") ?: response.body()?.get("accessToken") ?: response.body()?.get("jwt")
+                        if (t != null) {
+                            session.saveBackendToken(t.toString())
+                        }
+                        onComplete()
+                    } else if (response.code() == 401 || response.code() == 404 || response.code() == 500) {
+                        val regData = mapOf(
+                            "email" to email, 
+                            "password" to password,
+                            "confirmPassword" to password,
+                            "firstName" to email.substringBefore("@"),
+                            "lastName" to "User"
+                        )
+                        val loginData = mapOf("email" to email, "password" to password)
+                        backendAuth.register(regData).enqueue(object : Callback<Map<String, Any>> {
+                            override fun onResponse(call: Call<Map<String, Any>>, resp: Response<Map<String, Any>>) {
+                                backendAuth.login(loginData).enqueue(object : Callback<Map<String, Any>> {
+                                    override fun onResponse(c: Call<Map<String, Any>>, r: Response<Map<String, Any>>) {
+                                        if (r.isSuccessful) {
+                                            val t2 = r.body()?.get("token") ?: r.body()?.get("accessToken") ?: r.body()?.get("jwt")
+                                            if (t2 != null) {
+                                                session.saveBackendToken(t2.toString())
+                                            }
+                                        }
+                                        onComplete()
+                                    }
+                                    override fun onFailure(c: Call<Map<String, Any>>, t: Throwable) {
+                                        onComplete()
+                                    }
+                                })
+                            }
+                            override fun onFailure(call: Call<Map<String, Any>>, t: Throwable) {
+                                onComplete()
+                            }
+                        })
+                    } else {
+                        onComplete()
+                    }
+                }
+
+                override fun onFailure(call: Call<Map<String, Any>>, t: Throwable) {
+                    onComplete()
+                }
+            })
+        } catch (e: Exception) {
+            onComplete()
+        }
     }
 }

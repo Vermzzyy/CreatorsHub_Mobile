@@ -12,6 +12,7 @@ import com.example.creatorshub.data.RetrofitClient
 import com.example.creatorshub.screens.login.LoginActivity
 import com.example.creatorshub.models.ProfileResponse
 import com.example.creatorshub.screens.home.HomeActivity
+import com.example.creatorshub.screens.services.ServicesActivity
 import com.example.creatorshub.screens.settings.*
 
 class SettingsActivity : Activity(), SettingsContract.View {
@@ -70,7 +71,15 @@ class SettingsActivity : Activity(), SettingsContract.View {
 
         navHome.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
+            finish()
         }
+
+        navOrders.setOnClickListener {
+            startActivity(Intent(this, ServicesActivity::class.java))
+            finish()
+        }
+
+        navSettings.setOnClickListener { /* already on settings */ }
 
         presenter.loadProfile()
 
@@ -91,7 +100,14 @@ class SettingsActivity : Activity(), SettingsContract.View {
         }
 
         logoutBtn.setOnClickListener {
-            presenter.logout()
+            AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Logout") { _, _ ->
+                    presenter.logout()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
     }
 

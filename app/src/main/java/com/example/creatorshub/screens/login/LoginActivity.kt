@@ -30,7 +30,6 @@ class LoginActivity : Activity(), LoginContract.View {
         passwordField = findViewById(R.id.passwordField)
         progressBar = findViewById(R.id.progressBar)
 
-        // ✅ Use Auth client for login — targets /auth/v1/token
         val authApi = RetrofitClient.createAuthClient()
 
         presenter = LoginPresenter(

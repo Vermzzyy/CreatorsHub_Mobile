@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:orientation="horizontal"
-    android:background="#111F35"
+    android:background="@color/primary_dark"
     android:gravity="center">
 
     <ImageView

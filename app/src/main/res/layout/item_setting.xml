@@ -30,6 +30,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#DDDDDD"/>
+        android:background="@color/divider_color"/>
 
 </LinearLayout>

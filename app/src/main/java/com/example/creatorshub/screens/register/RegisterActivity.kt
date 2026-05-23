@@ -40,7 +40,8 @@ class RegisterActivity : Activity(), RegisterContract.View {
 
         presenter = RegisterPresenter(
             this,
-            RegisterModel(authApi)
+            RegisterModel(authApi),
+            this
         )
 
         loginLink.setOnClickListener {

@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2">
+    android:background="@color/bg_main">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                     android:text="SETTINGS"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="#000000"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="16dp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                             android:id="@+id/profileImage"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#DDDDDD"
+                            android:background="@color/divider_color"
                             android:scaleType="centerCrop"
                             android:src="@android:drawable/ic_menu_camera"/>
                     </androidx.cardview.widget.CardView>
@@ -61,7 +61,7 @@
                         android:text="Loading..."
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="#000000"
+                        android:textColor="@color/text_primary"
                         android:layout_marginTop="12dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -70,7 +70,7 @@
                         android:id="@+id/profileEmail"
                         android:text="user@email.com"
                         android:textSize="14sp"
-                        android:textColor="#666666"
+                        android:textColor="@color/text_secondary"
                         android:layout_marginTop="4dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -80,7 +80,7 @@
                     android:text="Account"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#000000"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -94,7 +94,7 @@
 
                     <TextView
                         android:text="Edit Profile"
-                        android:textColor="#000000"
+                        android:textColor="@color/text_primary"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
@@ -108,7 +108,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#DDDDDD"/>
+                    android:background="@color/divider_color"/>
 
                 <LinearLayout
                     android:id="@+id/changePassword"
@@ -119,7 +119,7 @@
 
                     <TextView
                         android:text="Change Password"
-                        android:textColor="#000000"
+                        android:textColor="@color/text_primary"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
@@ -133,13 +133,13 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#DDDDDD"/>
+                    android:background="@color/divider_color"/>
 
                 <TextView
                     android:text="General"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#000000"
+                    android:textColor="@color/text_primary"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="12dp"
                     android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
 
                     <TextView
                         android:text="FAQ"
-                        android:textColor="#000000"
+                        android:textColor="@color/text_primary"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
@@ -168,7 +168,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#DDDDDD"/>
+                    android:background="@color/divider_color"/>
 
                 <LinearLayout
                     android:id="@+id/contact"
@@ -179,7 +179,7 @@
 
                     <TextView
                         android:text="Contact Us"
-                        android:textColor="#000000"
+                        android:textColor="@color/text_primary"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
